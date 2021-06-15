@@ -1,0 +1,39 @@
+*{
+    font-family: sans-serif;
+}
+
+body {
+    background-image: url("../img/background.jpg");
+   }
+
+   .game-container{
+        display: flex;
+
+
+   }
+
+   .jeu-en-cours{
+       margin: 10px auto;
+       padding: 10px 0px;
+       position: relative;
+       
+       
+   }
+
+   table{
+    border-collapse: collapse;
+    margin: 0px 0px 0px 100px;
+ }
+    td {
+        border: 1px solid #cb9660;
+        padding: 5px;
+       
+   }
+   h2, h3, h4{
+       text-align: center;
+   }
+   #absolute{
+       position: absolute;
+       text-align: center;
+       margin: 25px 10px 0px 45px;
+   }
