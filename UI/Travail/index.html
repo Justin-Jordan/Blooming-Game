@@ -1,0 +1,391 @@
+<!Doctype HTML>
+<html>
+    <head>
+        <title>Jeu</title>
+        <meta charset ="utf-8">
+        <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+        <script type="text/javascript" src="JS/index.js"></script>
+    </head>
+    <body>
+        <audio controls="controls">
+            <source src="music/music.ogg" type="audio/ogg">
+        </audio>
+        <div id="windows">
+        	<div id="home-screen">
+        		<h1 id="home-title">Tontine<br>Js</h1>
+        		<h2 id="play-button">Play</h2>
+        		<span id="version">v1.0 (ceci est une version de cashflow adapté au co,texte camerounais des tontines)</span>
+        	</div>
+        	<div id="game-selection-screen">
+        		<h1 id="home-title">TontineJs</h1>
+        		<button id="new-game-button"> nouvelle partie</button>
+        	</div>
+        	<div id="setup-screen">
+        		<div id="setup-container">
+        			<div id="player-setup-container">
+        				<div id="player-number-option">
+        					Nombres de participants:
+        					<select id="player-number" title="Select the number of player for the game.">
+        						<option class="player-number-option" selected="selected">1</option>
+        						<option class="player-number-option">2</option>
+        						<option class="player-number-option">3</option>
+        						<option class="player-number-option">4</option>
+        						<option class="player-number-option">5</option>
+        						<option class="player-number-option">6</option>
+        						<option class="player-number-option">7</option>
+        						<option class="player-number-option">8</option>
+        					</select>
+        				</div>
+        				<div id="player-setup-input-container">
+        					<div id="player1input" class="player-input">
+        						Player 1: <input type="text" id="player1name" title="Player name" maxlength="19" value="Player 1"/>
+        						<label class="player-options-checkbox" title="Pay 10% of your income for Downsize insurance. Pay an additionnal 2% for every dependent.">
+        							<input id="po-insurance-p1" type="checkbox">
+        							<span class="player-input-checkmark">Assurance</span>
+        						</label>
+        						<div class="player-option-dropdowns">
+        							<select id="job-input-player1" class="job-input">
+        								<option selected="selected">
+        									Métier Aléatoire
+        								</option>
+        								<option>Pilot Aérien: £4500</option>
+        								<option>Homme d'affaire: £5500</option>
+        								<option>Medecin: £10000</option>
+        								<option>Ingénieur: £5000</option>
+        								<option>Concierge: £1600</option>
+        								<option>Avocat: £8000</option>
+        								<option>Mechanicien: £2500</option>
+        								<option>Infirmier(e): £3000</option>
+        								<option>Agent de police: £3500</option>
+        								<option>Secretaire: £2600</option>
+        								<option>Enseignant (A-2): £3400</option>
+        								<option>Taximan: £2600</option>
+        								<option>CEO: £24000</option>
+        							</select>
+                                    <select id="tontine-input-member" class="tontine-input">
+                                        <option selected="selected">Membre Aléatoire</option>
+                                        <option>Président</option>
+                                        <option>Trésorier</option>
+                                        <option>Secrétaire</option>
+                                        <option>Membre tièrce</option> 
+                                    </select>
+        							<select id="color-input-player1" class="color-input" onchange="APP.display.updatePlayerColor('menu', 1)">
+        								<option>Vert</option>
+        								<option>Rouge</option>
+        								<option>Bleu</option>
+        								<option>Noir</option>
+        								<option>Rose</option>
+        								<option>Aqua</option>
+        								<option>Orange</option>
+        								<option>Blanc</option>
+        								<option selected="selected">Couleur Aléatoire</option>
+        							</select>
+        						</div>
+        					</div>
+                            <div id="player2input" class="player-input">
+                            Player 2: <input type="text" id="player2name" title="Player name" maxlength="19" value="Player 2" />
+                            <label class="player-options-checkbox" title="Pay 10% of your income for Downsize insurance. Pay an additional 2% for every dependent.">
+                                <input id="po-insurance-p2" type="checkbox">
+                                <span class="player-input-checkmark">Assurance</span>
+                            </label>
+                            <div class="player-option-dropdowns">
+                                <select id="job-input-player2" class="job-input">
+                                    <option selected="selected">Métier Aléatoire</option>
+                                    <option>Pilot Aérien: £4500</option>
+                                    <option>Homme d'affaire: £5500</option>
+                                    <option>Medecin: £10000</option>
+                                    <option>Ingénieur: £5000</option>
+                                    <option>Concierge: £1600</option>
+                                    <option>Avocat: £8000</option>
+                                    <option>Mechanicien: £2500</option>
+                                    <option>Infirmier(e): £3000</option>
+                                    <option>Agent de police: £3500</option>
+                                    <option>Secretaire: £2600</option>
+                                    <option>Enseignant (A-2): £3400</option>
+                                    <option>Taximan: £2600</option>
+                                    <option>CEO: £24000</option>
+                                </select>
+                                <select id="tontine-input-member" class="tontine-input">
+                                        <option selected="selected">Membre Aléatoire</option>
+                                        <option>Président</option>
+                                        <option>Trésorier</option>
+                                        <option>Secrétaire</option>
+                                        <option>Membre tièrce</option> 
+                                </select>
+                                <select id="color-input-player2" class="color-input" onChange="APP.display.updatePlayerColor('menu', 2)">
+                                    <option>Vert</option>
+                                    <option>Rouge</option>
+                                    <option>Bleu</option>
+                                    <option>Noir</option>
+                                    <option>Rose</option>
+                                    <option>Aqua</option>
+                                    <option>Orange</option>
+                                    <option>Blanc</option>
+                                    <option selected="selected">Couleur Aléatoire</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="player3input" class="player-input">
+                            Player 3: <input type="text" id="player3name" title="Player name" maxlength="16" value="Player 3" />
+                            <label class="player-options-checkbox" title="Pay 10% of your income for Downsize insurance. Pay an additional 2% for every dependent.">
+                                <input id="po-insurance-p3" type="checkbox">
+                                <span class="player-input-checkmark">Assurance</span>
+                            </label>
+                            <div class="player-option-dropdowns">
+                                <select id="job-input-player3" class="job-input">
+                                    <option selected="selected">Métier Aléatoire</option>
+                                    <option>Pilot Aérien: £4500</option>
+                                    <option>Homme d'affaire: £5500</option>
+                                    <option>Medecin: £10000</option>
+                                    <option>Ingénieur: £5000</option>
+                                    <option>Concierge: £1600</option>
+                                    <option>Avocat: £8000</option>
+                                    <option>Mechanicien: £2500</option>
+                                    <option>Infirmier(e): £3000</option>
+                                    <option>Agent de police: £3500</option>
+                                    <option>Secretaire: £2600</option>
+                                    <option>Enseignant (A-2): £3400</option>
+                                    <option>Taximan: £2600</option>
+                                    <option>CEO: £24000</option>
+                                </select>
+                                <select id="tontine-input-member" class="tontine-input">
+                                        <option selected="selected">Membre Aléatoire</option>
+                                        <option>Président</option>
+                                        <option>Trésorier</option>
+                                        <option>Secrétaire</option>
+                                        <option>Membre tièrce</option> 
+                                </select>
+                                <select id="color-input-player3" class="color-input" onChange="APP.display.updatePlayerColor('menu', 3)">
+                                    <option>Vert</option>
+                                    <option>Rouge</option>
+                                    <option>Bleu</option>
+                                    <option>Noir</option>
+                                    <option>Rose</option>
+                                    <option>Aqua</option>
+                                    <option>Orange</option>
+                                    <option>Blanc</option>
+                                    <option selected="selected">couleur aléatoire</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="player4input" class="player-input">
+                            Player 4: <input type="text" id="player4name" title="Player name" maxlength="19" value="Player 4"/>
+                            <label class="player-options-checkbox" title="Pay 10% of your income for Downsize insurance. Pay an additional 2% for every dependent.">
+                                <input id="po-insurance-p4" type="checkbox">
+                                <span class="player-input-checkmark">Assurance</span>
+                            </label>
+                            <div class="player-option-dropdowns">
+                                <select id="job-input-player4" class="job-input">
+                                    <option selected="selected">Métier Aléatoire</option>
+                                    <option>Pilot Aérien: £4500</option>
+                                    <option>Homme d'affaire: £5500</option>
+                                    <option>Medecin: £10000</option>
+                                    <option>Ingénieur: £5000</option>
+                                    <option>Concierge: £1600</option>
+                                    <option>Avocat: £8000</option>
+                                    <option>Mechanicien: £2500</option>
+                                    <option>Infirmier(e): £3000</option>
+                                    <option>Agent de police: £3500</option>
+                                    <option>Secretaire: £2600</option>
+                                    <option>Enseignant (A-2): £3400</option>
+                                    <option>Taximan: £2600</option>
+                                    <option>CEO: £24000</option>
+                                </select>
+                                <select id="tontine-input-member" class="tontine-input">
+                                        <option selected="selected">Membre Aléatoire</option>
+                                        <option>Président</option>
+                                        <option>Trésorier</option>
+                                        <option>Secrétaire</option>
+                                        <option>Membre tièrce</option> 
+                                </select>
+                                <select id="color-input-player4" class="color-input" onChange="APP.display.updatePlayerColor('menu', 4)">
+                                     <option>Vert</option>
+                                    <option>Rouge</option>
+                                    <option>Bleu</option>
+                                    <option>Noir</option>
+                                    <option>Rose</option>
+                                    <option>Aqua</option>
+                                    <option>Orange</option>
+                                    <option>Blanc</option>
+                                    <option selected="selected">couleur aléatoire</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="player5input" class="player-input">
+                            Player 5: <input type="text" id="player5name" title="Player name" maxlength="19" value="Player 5" />
+                            <label class="player-options-checkbox" title="Pay 10% of your income for Downsize insurance. Pay an additional 2% for every dependent.">
+                                <input id="po-insurance-p5" type="checkbox">
+                                <span class="player-input-checkmark">Assurance</span>
+                            </label>
+                            <div class="player-option-dropdowns">
+                                <select id="job-input-player5" class="job-input">
+                                    <option selected="selected">Métier Aléatoire</option>
+                                    <option>Pilot Aérien: £4500</option>
+                                    <option>Homme d'affaire: £5500</option>
+                                    <option>Medecin: £10000</option>
+                                    <option>Ingénieur: £5000</option>
+                                    <option>Concierge: £1600</option>
+                                    <option>Avocat: £8000</option>
+                                    <option>Mechanicien: £2500</option>
+                                    <option>Infirmier(e): £3000</option>
+                                    <option>Agent de police: £3500</option>
+                                    <option>Secretaire: £2600</option>
+                                    <option>Enseignant (A-2): £3400</option>
+                                    <option>Taximan: £2600</option>
+                                    <option>CEO: £24000</option>
+                                </select>
+                                <select id="tontine-input-member" class="tontine-input">
+                                        <option selected="selected">Membre Aléatoire</option>
+                                        <option>Président</option>
+                                        <option>Trésorier</option>
+                                        <option>Secrétaire</option>
+                                        <option>Membre tièrce</option> 
+                                </select>
+                                <select id="color-input-player5" class="color-input" onChange="APP.display.updatePlayerColor('menu', 5)">
+                                    <option>Vert</option>
+                                    <option>Rouge</option>
+                                    <option>Bleu</option>
+                                    <option>Noir</option>
+                                    <option>Rose</option>
+                                    <option>Aqua</option>
+                                    <option>Orange</option>
+                                    <option>Blanc</option>
+                                    <option selected="selected">couleur aléatoire</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="player6input" class="player-input">
+                            Player 6: <input type="text" id="player6name" title="Player name" maxlength="19" value="Player 6" />
+                            <label class="player-options-checkbox" title="Pay 10% of your income for Downsize insurance. Pay an additional 2% for every dependent.">
+                                <input id="po-insurance-p6" type="checkbox">
+                                <span class="player-input-checkmark">Assurance</span>
+                            </label>
+                            <div class="player-option-dropdowns">
+                                <select id="job-input-player6" class="job-input">
+                                    <option selected="selected">Métier Aléatoire</option>
+                                    <option>Pilot Aérien: £4500</option>
+                                    <option>Homme d'affaire: £5500</option>
+                                    <option>Medecin: £10000</option>
+                                    <option>Ingénieur: £5000</option>
+                                    <option>Concierge: £1600</option>
+                                    <option>Avocat: £8000</option>
+                                    <option>Mechanicien: £2500</option>
+                                    <option>Infirmier(e): £3000</option>
+                                    <option>Agent de police: £3500</option>
+                                    <option>Secretaire: £2600</option>
+                                    <option>Enseignant (A-2): £3400</option>
+                                    <option>Taximan: £2600</option>
+                                    <option>CEO: £24000</option>
+                                </select>
+                                <select id="tontine-input-member" class="tontine-input">
+                                        <option selected="selected">Membre Aléatoire</option>
+                                        <option>Président</option>
+                                        <option>Trésorier</option>
+                                        <option>Secrétaire</option>
+                                        <option>Membre tièrce</option> 
+                                </select>
+                                <select id="color-input-player6" class="color-input" onChange="APP.display.updatePlayerColor('menu', 6)">
+                                    <option>Vert</option>
+                                    <option>Rouge</option>
+                                    <option>Bleu</option>
+                                    <option>Noir</option>
+                                    <option>Rose</option>
+                                    <option>Aqua</option>
+                                    <option>Orange</option>
+                                    <option>Blanc</option>
+                                    <option selected="selected">couleur aléatoire</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="player7input" class="player-input">
+                            Player 7: <input type="text" id="player7name" title="Player name" maxlength="19" value="Player 7" />
+                            <label class="player-options-checkbox" title="Pay 10% of your income for Downsize insurance. Pay an additional 2% for every dependent.">
+                                <input id="po-insurance-p7" type="checkbox">
+                                <span class="player-input-checkmark">Assurance</span>
+                            </label>
+                            <div class="player-option-dropdowns">
+                                <select id="job-input-player7" class="job-input">
+                                    <option selected="selected">Métier Aléatoire</option>
+                                    <option>Pilot Aérien: £4500</option>
+                                    <option>Homme d'affaire: £5500</option>
+                                    <option>Medecin: £10000</option>
+                                    <option>Ingénieur: £5000</option>
+                                    <option>Concierge: £1600</option>
+                                    <option>Avocat: £8000</option>
+                                    <option>Mechanicien: £2500</option>
+                                    <option>Infirmier(e): £3000</option>
+                                    <option>Agent de police: £3500</option>
+                                    <option>Secretaire: £2600</option>
+                                    <option>Enseignant (A-2): £3400</option>
+                                    <option>Taximan: £2600</option>
+                                    <option>CEO: £24000</option>
+                                </select><select id="tontine-input-member" class="tontine-input">
+                                        <option selected="selected">Membre Aléatoire</option>
+                                        <option>Président</option>
+                                        <option>Trésorier</option>
+                                        <option>Secrétaire</option>
+                                        <option>Membre tièrce</option> 
+                                </select>
+                                <select id="color-input-player7" class="color-input" onChange="APP.display.updatePlayerColor('menu', 7)">
+                                    <option>Vert</option>
+                                    <option>Rouge</option>
+                                    <option>Bleu</option>
+                                    <option>Noir</option>
+                                    <option>Rose</option>
+                                    <option>Aqua</option>
+                                    <option>Orange</option>
+                                    <option>Blanc</option>
+                                    <option selected="selected">couleur aléatoire</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="player8input" class="player-input">
+                            Player 8: <input type="text" id="player8name" title="Player name" maxlength="19" value="Player 8" />
+                            <label class="player-options-checkbox" title="Pay 10% of your income for Downsize insurance. Pay an additional 2% for every dependent.">
+                                <input id="po-insurance-p8" type="checkbox">
+                                <span class="player-input-checkmark">Assurance</span>
+                            </label>
+                            <div class="player-option-dropdowns">
+                                <select id="job-input-player8" class="job-input">
+                                    <option selected="selected">Métier Aléatoire</option>
+                                    <option>Pilot Aérien: £4500</option>
+                                    <option>Homme d'affaire: £5500</option>
+                                    <option>Medecin: £10000</option>
+                                    <option>Ingénieur: £5000</option>
+                                    <option>Concierge: £1600</option>
+                                    <option>Avocat: £8000</option>
+                                    <option>Mechanicien: £2500</option>
+                                    <option>Infirmier(e): £3000</option>
+                                    <option>Agent de police: £3500</option>
+                                    <option>Secretaire: £2600</option>
+                                    <option>Enseignant (A-2): £3400</option>
+                                    <option>Taximan: £2600</option>
+                                    <option>CEO: £24000</option>
+                                </select>
+                                <select id="tontine-input-member" class="tontine-input">
+                                        <option selected="selected">Membre Aléatoire</option>
+                                        <option>Président</option>
+                                        <option>Trésorier</option>
+                                        <option>Secrétaire</option>
+                                        <option>Membre tièrce</option> 
+                                </select>
+                                <select id="color-input-player8" class="color-input" onChange="APP.display.updatePlayerColor('menu', 8)">
+                                    <option>Vert</option>
+                                    <option>Rouge</option>
+                                    <option>Bleu</option>
+                                    <option>Noir</option>
+                                    <option>Rose</option>
+                                    <option>Aqua</option>
+                                    <option>Orange</option>
+                                    <option>Blanc</option>
+                                    <option selected="selected">couleur aléatoire</option>
+                                </select>
+                            </div>
+                        </div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+    </body>
+</html>
